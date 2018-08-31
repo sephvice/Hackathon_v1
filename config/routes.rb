@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     # [...]
   end
 
-# namespace the controllers without affecting the URI
+  # namespace the controllers without affecting the URI
   scope module: :v1, constraints: ApiVersion.new('v1', true) do
     resources :todos do
       resources :items
@@ -21,4 +21,5 @@ Rails.application.routes.draw do
 
    post 'auth/login', to: 'authentication#authenticate'
    post 'signup', to: 'users#create'
+  end
 end
